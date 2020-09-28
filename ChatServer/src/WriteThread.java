@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 
 /**
- * This thread is responsible for reading user's input and send it
+ * This thread is responsible for reading user's input from keyboard and send it
  * to the server.
  * It runs in an infinite loop until the user types 'bye' to quit.
  *
@@ -18,8 +18,7 @@ public class WriteThread extends Thread {
         this.client = client;
 
         try {
-            OutputStream output = socket.getOutputStream();
-            writer = new PrintWriter(output, true);
+            writer = new PrintWriter(socket.getOutputStream(), true);
         } catch (IOException ex) {
             System.out.println("Error getting output stream: " + ex.getMessage());
             ex.printStackTrace();
@@ -30,6 +29,7 @@ public class WriteThread extends Thread {
 
         Console console = System.console();
 
+        // TODO: Prevent printing to console while prompting for name
         String userName = console.readLine("\nEnter your name: ");
         client.setUserName(userName);
         writer.println(userName);

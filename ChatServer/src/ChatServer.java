@@ -41,10 +41,20 @@ public class ChatServer {
     public static void main(String[] args) {
         if (args.length < 1) {
             System.out.println("Syntax: java ChatServer <port-number>");
-            System.exit(0);
+            System.exit(1);
         }
-
+        
+        if(!ArgsValidation.isValidPortArg(args[0])) {
+            System.out.println("Err: Non numeric argument not allowed");
+            System.exit(1);
+        }
+        
         int port = Integer.parseInt(args[0]);
+        
+        if(!ArgsValidation.isValidPort(port)) {
+            System.out.println("Err: Attempt to use well-known port");
+            System.exit(1);
+        }
 
         ChatServer server = new ChatServer(port);
         server.execute();
@@ -75,7 +85,7 @@ public class ChatServer {
         boolean removed = userNames.remove(userName);
         if (removed) {
             userThreads.remove(aUser);
-            System.out.println("The user " + userName + " quitted");
+            System.out.println(userName + " has left the chat");
         }
     }
 

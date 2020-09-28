@@ -44,10 +44,29 @@ public class ChatClient {
 
 
     public static void main(String[] args) {
-        if (args.length < 2) return;
+        if (args.length < 2) {
+        	System.out.println("Syntax: java ChatClient <ip/address> <port-number>");
+            System.exit(1);
+        }
+
+        if(!ArgsValidation.isValidHostnameArg(args[0])) {
+            System.out.println("Err: Invalid hostname");
+            System.exit(1);
+        }
 
         String hostname = args[0];
+
+        if(!ArgsValidation.isValidPortArg(args[1])) {
+            System.out.println("Err: Non numeric argument not allowed");
+            System.exit(1);
+        }
+        
         int port = Integer.parseInt(args[1]);
+        
+        if(!ArgsValidation.isValidPort(port)) {
+            System.out.println("Err: Attempt to use well-known port");
+            System.exit(1);
+        }
 
         ChatClient client = new ChatClient(hostname, port);
         client.execute();
