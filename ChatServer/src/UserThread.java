@@ -20,11 +20,11 @@ public class UserThread extends Thread {
 
     public void run() {
         try {
-            InputStream input = socket.getInputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+            BufferedReader reader = new BufferedReader(
+                                        new InputStreamReader(socket.getInputStream()));
 
-            OutputStream output = socket.getOutputStream();
-            writer = new PrintWriter(output, true);
+
+            writer = new PrintWriter(socket.getOutputStream(), true);
 
             printUsers();
 
@@ -46,7 +46,7 @@ public class UserThread extends Thread {
             server.removeUser(userName, this);
             socket.close();
 
-            serverMessage = userName + " has quitted.";
+            serverMessage = userName + " has left the chat.";
             server.broadcast(serverMessage, this);
 
         } catch (IOException ex) {
