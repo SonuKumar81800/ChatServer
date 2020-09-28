@@ -19,7 +19,7 @@ Usage:
      
      port should:
      	1. only contain digits
-     	2. should be a well-known ports i.e. 0-1023
+     	2. should not be a well-known ports i.e. 0-1023
      
      ip should:
      	1. either contain digit and '.'
