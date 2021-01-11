@@ -1,26 +1,15 @@
 # ChatServer
-This application can be used for chating in a network without internet with localhost
-
-
-Usage:
+This application can be used for chating in a Network.
+## Usage:
+- Start Server with `java ChatServer <port>`
+  `java ChatServer 12345`
+- Start a Client with `java ChatClient <ip/hostname>`
+  `java ChatClient locahost 12345`
+## ArgsValidation
+- port should:
+   1. only contain digits
+   2. should not be a well-known port i.e. 0-1023
      
-     -------------------------
-     java ChatServer <port>
-     
-     eg. java ChatServer 12345
-     
-     -------------------------
-     
-     java ChatClient <ip/hostname>
-     
-     eg. java ChatClient locahost 12345
-     
-     --------------------------
-     
-     port should:
-     	1. only contain digits
-     	2. should not be a well-known ports i.e. 0-1023
-     
-     ip should:
-     	1. either contain digit and '.'
-     	2. or be localhost
+- ip/hostname should:
+   1. either contain digits and '.'
+   2. or be localhost
