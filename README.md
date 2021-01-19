@@ -2,8 +2,10 @@
 This application can be used for chating in a Network.
 ## Usage:
 - Start Server with `java ChatServer <port>`
+
   `java ChatServer 12345`
 - Start a Client with `java ChatClient <ip/hostname>`
+
   `java ChatClient locahost 12345`
 ## ArgsValidation
 - port should:
