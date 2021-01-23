@@ -14,9 +14,9 @@ This application can be used for chating in a Network.
 - `src_files.txt`: contains path to src files to be compiled
 - `compile.sh`: script to compile all src files
 - `server.sh`: start server on port 12345
-  (default, see [Changing Arguments](#changingarguments))
+  (default, see [Changing Arguments](#changing-arguments))
 - `client.sh`: start client on ip/port 127.0.0.1/12345
-  (default, see [Changing Arguments](#changingarguments))
+  (default, see [Changing Arguments](#changing-arguments))
 
 ## Argument Validation
 - port should:
